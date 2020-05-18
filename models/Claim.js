@@ -2,8 +2,10 @@ const mongoose = require('mongoose');
 
 const ClaimSchema = new mongoose.Schema({
     name: { required: String },
-    user: Object, //TODO - connect to user; object id?
-    floorplan: [Object] //TODO - reference the specific Floorplans to which it's attached; object id?
+    user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
+    floorplan: [
+        {type: mongoose.Schema.Types.ObjectId, ref:'Floorplan'}
+    ]
 });
 
 const Claim = mongoose.model('Claim', ClaimSchema);

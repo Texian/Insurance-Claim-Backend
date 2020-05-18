@@ -2,9 +2,11 @@ const mongoose = require('mongoose');
 
 const RoomSchema = new mongoose.Schema({
     name: {required: String},
+    floorplan: {type: mongoose.Schema.Types.ObjectId, ref:'Floorplan'},
     size: {required: Number, required: Number},
-    items: [Object], //TODO - reference the specific Item to which it's attached; object id?
-    floorplan: Object //TODO - reference the specific Floorplan to which it's attached; object id?
+    items: [
+        {type: mongoose.Schema.Types.ObjectId, ref:'Item'}
+    ]
 });
 
 const Room = mongoose.model('Room', RoomSchema);
