@@ -58,7 +58,7 @@ const floorplans = [
 const rooms = [
     {
         name: "Entry Hall",
-        floorplan: "First Floor",
+        //floorplan: "First Floor",
         items: [
             "Umbrella Stand",
             "Fancy Rug"
@@ -66,7 +66,7 @@ const rooms = [
     },
     {
         name: "Living Room",
-        floorplan: "First Floor",
+        //floorplan: "First Floor",
         items: [
             "Opulent Couch",
             "Footstool"
@@ -74,7 +74,7 @@ const rooms = [
     },
     {
         name: "Kitchen",
-        floorplan: "First Floor",
+        //floorplan: "First Floor",
         items: [
             "Breakfast Table",
             "Copper Cookware",
@@ -83,7 +83,7 @@ const rooms = [
     },
     {
         name: "Master Bedroom",
-        floorplan: "Second Floor",
+        //floorplan: "Second Floor",
         items: [
             "California King Bed",
             "Fancy Drapes"
@@ -91,7 +91,7 @@ const rooms = [
     },
     {
         name: "Guest Bedroom 1",
-        floorplan: "Second Floor",
+        //floorplan: "Second Floor",
         items: [
             "Twin Sized Bed",
             "Chest of Drawers"
@@ -99,7 +99,7 @@ const rooms = [
     },
     {
         name: "Guest Bedroom 2",
-        floorplan: "Second Floor",
+        //floorplan: "Second Floor",
         items: [
             "Old Cot",
             "Oil Lamp"
@@ -107,14 +107,14 @@ const rooms = [
     },
     {
         name: "Attic",
-        floorplan: "Attic",
+        //floorplan: "Attic",
         items: [
             "Boxes of Junk"
         ]
     },
     {
         name: "Hidden Stash",
-        floorplan: "Attic",
+        //floorplan: "Attic",
         items: [
             "Pile of Gold"
         ]
@@ -125,105 +125,105 @@ const items = [
     {
         name: "Umbrella Stand",
         value: 50,
-        room: "Entry Hall",
+        //room: "Entry Hall",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "For umbrellas",
     },
     {
         name: "Fancy Rug",
         value: 375,
-        room: "Entry Hall",
+        //room: "Entry Hall",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Gift from a friend",
     },
     {
         name: "Opulent Couch",
         value: 1000,
-        room: "Living Room",
+        //room: "Living Room",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Genuine ostrich leather",
     },
     {
         name: "Footstool",
         value: 750,
-        room: "Living Room",
+        //room: "Living Room",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Also genuine ostrich leather",
     },
     {
         name: "Breakfast Table",
         value: 125,
-        room: "Kitchen",
+        //room: "Kitchen",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Carved from oak",
     },
     {
         name: "Copper Cookware",
         value: 2100,
-        room: "Kitchen",
+        //room: "Kitchen",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "An entire set of pots, pans, and a double-boiler",
     },
     {
         name: "Cast Iron Stove",
         value: 2000,
-        room: "Kitchen",
+        //room: "Kitchen",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Antique, and bolted into the wall",
     },
     {
         name: "California King Bed",
         value: 3250,
-        room: "Master Bedroom",
+        //room: "Master Bedroom",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "With down mattress and down comforter",
     },
     {
         name: "Fancy Drapes",
         value: 400,
-        room: "Master Bedroom",
+        //room: "Master Bedroom",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Mostly lace",
     },
     {
         name: "Twin Sized Bed",
         value: 300,
-        room: "Guest Bedroom 1",
+        //room: "Guest Bedroom 1",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Serviceable for a single overnight guest for one night",
     },
     {
         name: "Chest of Drawers",
         value: 125,
-        room: "Guest Bedroom 1",
+        //room: "Guest Bedroom 1",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Got on sale from Ikea, the DRÆWĘR model",
     },
     {
         name: "Old Cot",
         value: 25,
-        room: "Guest Bedroom 2",
+        //room: "Guest Bedroom 2",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "For unwanted guests",
     },
     {
         name: "Oil Lamp",
         value: 10,
-        room: "Guest Bedroom 2",
+        //room: "Guest Bedroom 2",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Probably a fire hazard, but the room doesn't have electricity",
     },
     {
         name: "Boxes of Junk",
         value: 5,
-        room: "Attic",
+        //room: "Attic",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Various odds and ends, but mostly just trash",
     },
     {
         name: "Pile of Gold",
         value: 2000000,
-        room: "Hidden Stash",
+        //room: "Hidden Stash",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
         description: "Illicitly-acquired riches",
     },

@@ -15,9 +15,12 @@ const corsOptions = {
     optionsSuccessStatus: 200
 }
 
+//----------------------------------------------------- Middleware -----------------------------------------------------//
 app.use(cors(corsOptions));
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+
+//----------------------------------------------------- Routes -----------------------------------------------------//
 app.use('/api/v1', routes.auth);
 app.use('/api/v1', routes.api);
 

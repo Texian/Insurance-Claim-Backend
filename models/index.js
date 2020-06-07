@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const DB_URI = process.env.MONGODB_URI || 'mongodb.localhost:27017/insurance-claim-backend';
+const DB_URI = process.env.MONGODB_URI || 'mongodb://localhost:27017/insurance-claim';
 
 mongoose.connect(DB_URI, {
     useNewURLParser: true,
