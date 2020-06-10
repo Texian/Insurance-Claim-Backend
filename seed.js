@@ -123,7 +123,7 @@ const rooms = [
 
 const items = [
     {
-        name: "Umbrella Stand",
+        name: 'Umbrella Stand',
         value: 50,
         //room: "Entry Hall",
         image: String, //TODO - create image uploads, reference the image in the database; object id?
@@ -229,50 +229,27 @@ const items = [
     },
 ];
 
-const seedItems = async () => {
+const seedUsers = async () => {
     try {
-        await db.Item.deleteMany({});
-        console.log('Deleted previous items');
-        let createdItems = await db.Item.create(items);
-        console.log(`Created ${createdItems.length} items`);
+        await db.User.deleteMany({});
+        console.log('Deleted previous users');
+        let user;
+        for (user of users) {
+            const hash = await bcrypt.hash(SEED_PASSWORD, 10);
+            user.password = hash;
+            user = await db.User.create(user);
+        }
+        console.log(`Created ${user.length} users`);
     } catch (err) {
-        console.log(`Seed Items error: ${err}`);
-        process.exit(1);
-    }
-}
-
-const seedRooms = async () => {
-    try {
-        let itemId = await seedItems();
-        rooms.forEach(room => room.item = itemId);
-        await db.Room.deleteMany({});
-        console.log('Deleted previous rooms');
-        let createdRooms = await db.Room.create(rooms);
-        console.log(`Created ${createdRooms.length} rooms`);
-    } catch (err) {
-        console.log(`Seed Rooms error: ${err}`);
-        process.exit(1);
-    }
-}
-
-const seedFloorplans = async () => {
-    try {
-        let roomId = await seedRooms();
-        floorplans.forEach(floorplan => floorplan.room = roomId);
-        await db.Floorplan.deleteMany({});
-        console.log('Deleted previous floorplans');
-        let createdFloorplans = await db.Floorplan.create(floorplans);
-        console.log(`Created ${createdFloorplans.length} floorplans`);
-    } catch (err) {
-        console.log(`Seed Floorplans error: ${err}`);
+        console.log(`Seed Users error: ${err}`);
         process.exit(1);
     }
 }
 
 const seedClaims = async () => {
     try {
-        let floorplanId = await seedFloorplans();
-        claims.forEach(claim => claim.floorplan = floorplanId);
+        let userId = await seedUsers();
+        claims.forEach(claim => claim.user = userId);
         await db.Claim.deleteMany({});
         console.log('Deleted previous claims');
         let createdClaims = await db.Claim.create(claims);
@@ -283,24 +260,46 @@ const seedClaims = async () => {
     }
 }
 
-const seedUsers = async () => {
+const seedFloorplans = async () => {
     try {
         let claimId = await seedClaims();
-        users.forEach(user => user.claim = claimId);
-        await db.User.deleteMany({});
-        console.log('Deleted previous users');
-        let user;
-        for (user of users) {
-            const hash = await bcrypt.hash(SEED_PASSWORD, 10);
-            user.password = hash;
-            user = await db.User.create(user);
-        }
-        console.log(`Seeded ${users.length} users`);
-        process.exit();
+        floorplans.forEach(floorplan => floorplan.claim = claimId);
+        await db.Floorplan.deleteMany({});
+        console.log('Deleted previous floorplans');
+        let createdFloorplans = await db.Floorplan.create(floorplans);
+        console.log(`Created ${createdFloorplans.length} floorplans`);
     } catch (err) {
-        console.log(`Seed Users error: ${err}`);
+        console.log(`Seed Floorplans error: ${err}`);
         process.exit(1);
     }
 }
 
-seedUsers();
+const seedRooms = async () => {
+    try {
+        let floorplanId = await seedFloorplans();
+        rooms.forEach(room => room.floorplan = floorplanId);
+        await db.Room.deleteMany({});
+        console.log('Deleted previous rooms');
+        let createdRooms = await db.Room.create(rooms);
+        console.log(`Created ${createdRooms.length} rooms`);
+    } catch (err) {
+        console.log(`Seed Rooms error: ${err}`);
+        process.exit(1);
+    }
+}
+
+const seedItems = async () => {
+    try {
+        let roomId = await seedRooms();
+        items.forEach(item => item.room = roomId);
+        await db.Items.deleteMany({});
+        console.log('Deleted previous items');
+        console.log(`Seeded ${items.length} items`);
+        process.exit();
+    } catch (err) {
+        console.log(`Seed Items error: ${err}`);
+        process.exit(1);
+    }
+}
+
+seedItems();
