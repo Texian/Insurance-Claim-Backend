@@ -3,7 +3,7 @@ const User = require('./User');
 
 const ClaimSchema = new mongoose.Schema({
     name: String,
-    user: [{type: mongoose.Schema.Types.ObjectId, ref:'User'}],
+    user: {type: mongoose.Schema.Types.ObjectId, ref:'User'},
     //floorplan: [{type: mongoose.Schema.Types.ObjectId, ref:'Floorplan'}]
 });
 
