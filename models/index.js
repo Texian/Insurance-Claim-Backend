@@ -11,9 +11,5 @@ mongoose.connect(DB_URI, {
 .catch((err) => console.log(`Caught error: ${err}`));
 
 module.exports = {
-    Claim: require('./Claim'),
-    Floorplan: require('./Floorplan'),
-    Item: require('./Item'),
-    Room: require('./Room'),
     User: require('./User')
 };

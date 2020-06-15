@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const bodyParser = require('body-parser');
+//const bodyParser = require('body-parser');
 const cors = require('cors');
 
 require('dotenv').config();
@@ -17,8 +17,8 @@ const corsOptions = {
 
 //----------------------------------------------------- Middleware -----------------------------------------------------//
 app.use(cors(corsOptions));
-app.use(bodyParser.urlencoded({extended: false}));
-app.use(bodyParser.json());
+app.use(express.urlencoded({extended: false}));
+app.use(express.json());
 
 //----------------------------------------------------- Routes -----------------------------------------------------//
 app.use('/api/v1', routes.auth);

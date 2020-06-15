@@ -8,225 +8,158 @@ const users = [
         email: "greed@waaaah.com",
         avatar: String, //TODO - create image uploads, reference the image in the database; object id?
         password: "12347890",
-        claim: [
-            "Luigi's Mansion"
-        ]
+        claim: [{
+            name: "Luigi's Mansion",
+            floorplan: [
+                {
+                    name: "First Floor",
+                    room: [
+                        {
+                            name: "Entry Hall",
+                            items: [
+                                {
+                                    name: 'Umbrella Stand',
+                                    value: 50,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "For umbrellas",
+                                },
+                                {
+                                    name: "Fancy Rug",
+                                    value: 375,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Gift from a friend",
+                                }
+                            ]
+                        },
+                        {
+                            name: "Living Room",
+                            items: [
+                                {
+                                    name: "Opulent Couch",
+                                    value: 1000,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Genuine ostrich leather",
+                                },
+                                {
+                                    name: "Footstool",
+                                    value: 750,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Also genuine ostrich leather",
+                                }
+                            ]
+                        },
+                        {
+                            name: "Kitchen",
+                            items: [
+                                {
+                                    name: "Breakfast Table",
+                                    value: 125,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Carved from oak",
+                                },
+                                {
+                                    name: "Copper Cookware",
+                                    value: 2100,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "An entire set of pots, pans, and a double-boiler",
+                                },
+                                {
+                                    name: "Cast Iron Stove",
+                                    value: 2000,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Antique, and bolted into the wall",
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Second Floor",
+                    room: [
+                        {
+                            name: "Master Bedroom",
+                            items: [
+                                {
+                                    name: "California King Bed",
+                                    value: 3250,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "With down mattress and down comforter",
+                                },
+                                {
+                                    name: "Fancy Drapes",
+                                    value: 400,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Mostly lace",
+                                }
+                            ]
+                        },
+                        {
+                            name: "Guest Bedroom 1",
+                            items: [
+                                {
+                                    name: "Twin Sized Bed",
+                                    value: 300,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Serviceable for a single overnight guest for one night",
+                                },
+                                {
+                                    name: "Chest of Drawers",
+                                    value: 125,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Got on sale from Ikea, the DRÆWĘR model",
+                                }
+                            ]
+                        },
+                        {
+                            name: "Guest Bedroom 2",
+                            items: [
+                                {
+                                    name: "Old Cot",
+                                    value: 25,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "For unwanted guests",
+                                },
+                                {
+                                    name: "Oil Lamp",
+                                    value: 10,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Probably a fire hazard, but the room doesn't have electricity",
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    name: "Attic",
+                    room: [
+                        {
+                            name: "Attic",
+                            items: [
+                                {
+                                    name: "Boxes of Junk",
+                                    value: 5,
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Various odds and ends, but mostly just trash",
+                                }
+                            ]
+                        },
+                        {
+                            name: "Hidden Stash",
+                            items: [
+                                {
+                                    name: "Pile of Gold",
+                                    value: 2000000,
+                                    room: "Hidden Stash",
+                                    image: String, //TODO - create image uploads, reference the image in the database; object id?
+                                    description: "Illicitly-acquired riches",
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        }]
     }  
-];
-
-const claims = [
-    {
-        name: "Luigi's Mansion",
-        user: "Wario",
-        floorplan: [
-            "First Floor",
-            "Second Floor",
-            "Attic"
-        ]
-    }
-];
-
-const floorplans = [
-    {
-        name: "First Floor",
-        claim: "Luigi's Mansion",
-        room: [
-            "Entry Hall",
-            "Living Room",
-            "Kitchen"
-        ]
-    },
-    {
-        name: "Second Floor",
-        claim: "Luigi's Mansion",
-        room: [
-            "Master Bedroom",
-            "Guest Bedroom 1",
-            "Guest Bedroom 2"
-        ]
-    },
-    {
-        name: "Attic",
-        claim: "Luigi's Mansion",
-        room: [
-            "Attic",
-            "Hidden Stash"
-        ]
-    }
-];
-
-const rooms = [
-    {
-        name: "Entry Hall",
-        //floorplan: "First Floor",
-        items: [
-            "Umbrella Stand",
-            "Fancy Rug"
-        ]
-    },
-    {
-        name: "Living Room",
-        //floorplan: "First Floor",
-        items: [
-            "Opulent Couch",
-            "Footstool"
-        ]
-    },
-    {
-        name: "Kitchen",
-        //floorplan: "First Floor",
-        items: [
-            "Breakfast Table",
-            "Copper Cookware",
-            "Cast Iron Stove"
-        ]
-    },
-    {
-        name: "Master Bedroom",
-        //floorplan: "Second Floor",
-        items: [
-            "California King Bed",
-            "Fancy Drapes"
-        ]
-    },
-    {
-        name: "Guest Bedroom 1",
-        //floorplan: "Second Floor",
-        items: [
-            "Twin Sized Bed",
-            "Chest of Drawers"
-        ]
-    },
-    {
-        name: "Guest Bedroom 2",
-        //floorplan: "Second Floor",
-        items: [
-            "Old Cot",
-            "Oil Lamp"
-        ]
-    },
-    {
-        name: "Attic",
-        //floorplan: "Attic",
-        items: [
-            "Boxes of Junk"
-        ]
-    },
-    {
-        name: "Hidden Stash",
-        //floorplan: "Attic",
-        items: [
-            "Pile of Gold"
-        ]
-    },
-];
-
-const items = [
-    {
-        name: 'Umbrella Stand',
-        value: 50,
-        //room: "Entry Hall",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "For umbrellas",
-    },
-    {
-        name: "Fancy Rug",
-        value: 375,
-        //room: "Entry Hall",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Gift from a friend",
-    },
-    {
-        name: "Opulent Couch",
-        value: 1000,
-        //room: "Living Room",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Genuine ostrich leather",
-    },
-    {
-        name: "Footstool",
-        value: 750,
-        //room: "Living Room",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Also genuine ostrich leather",
-    },
-    {
-        name: "Breakfast Table",
-        value: 125,
-        //room: "Kitchen",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Carved from oak",
-    },
-    {
-        name: "Copper Cookware",
-        value: 2100,
-        //room: "Kitchen",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "An entire set of pots, pans, and a double-boiler",
-    },
-    {
-        name: "Cast Iron Stove",
-        value: 2000,
-        //room: "Kitchen",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Antique, and bolted into the wall",
-    },
-    {
-        name: "California King Bed",
-        value: 3250,
-        //room: "Master Bedroom",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "With down mattress and down comforter",
-    },
-    {
-        name: "Fancy Drapes",
-        value: 400,
-        //room: "Master Bedroom",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Mostly lace",
-    },
-    {
-        name: "Twin Sized Bed",
-        value: 300,
-        //room: "Guest Bedroom 1",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Serviceable for a single overnight guest for one night",
-    },
-    {
-        name: "Chest of Drawers",
-        value: 125,
-        //room: "Guest Bedroom 1",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Got on sale from Ikea, the DRÆWĘR model",
-    },
-    {
-        name: "Old Cot",
-        value: 25,
-        //room: "Guest Bedroom 2",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "For unwanted guests",
-    },
-    {
-        name: "Oil Lamp",
-        value: 10,
-        //room: "Guest Bedroom 2",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Probably a fire hazard, but the room doesn't have electricity",
-    },
-    {
-        name: "Boxes of Junk",
-        value: 5,
-        //room: "Attic",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Various odds and ends, but mostly just trash",
-    },
-    {
-        name: "Pile of Gold",
-        value: 2000000,
-        //room: "Hidden Stash",
-        image: String, //TODO - create image uploads, reference the image in the database; object id?
-        description: "Illicitly-acquired riches",
-    },
 ];
 
 const seedUsers = async () => {
@@ -240,66 +173,12 @@ const seedUsers = async () => {
             user = await db.User.create(user);
         }
         console.log(`Created ${user.length} users`);
+        process.exit(1);
     } catch (err) {
         console.log(`Seed Users error: ${err}`);
         process.exit(1);
     }
 }
 
-const seedClaims = async () => {
-    try {
-        let userId = await seedUsers();
-        claims.forEach(claim => claim.user = userId);
-        await db.Claim.deleteMany({});
-        console.log('Deleted previous claims');
-        let createdClaims = await db.Claim.create(claims);
-        console.log(`Created ${createdClaims.length} claims`);
-    } catch (err) {
-        console.log(`Seed Claims error: ${err}`);
-        process.exit(1);
-    }
-}
 
-const seedFloorplans = async () => {
-    try {
-        let claimId = await seedClaims();
-        floorplans.forEach(floorplan => floorplan.claim = claimId);
-        await db.Floorplan.deleteMany({});
-        console.log('Deleted previous floorplans');
-        let createdFloorplans = await db.Floorplan.create(floorplans);
-        console.log(`Created ${createdFloorplans.length} floorplans`);
-    } catch (err) {
-        console.log(`Seed Floorplans error: ${err}`);
-        process.exit(1);
-    }
-}
-
-const seedRooms = async () => {
-    try {
-        let floorplanId = await seedFloorplans();
-        rooms.forEach(room => room.floorplan = floorplanId);
-        await db.Room.deleteMany({});
-        console.log('Deleted previous rooms');
-        let createdRooms = await db.Room.create(rooms);
-        console.log(`Created ${createdRooms.length} rooms`);
-    } catch (err) {
-        console.log(`Seed Rooms error: ${err}`);
-        process.exit(1);
-    }
-}
-
-const seedItems = async () => {
-    try {
-        let roomId = await seedRooms();
-        items.forEach(item => item.room = roomId);
-        await db.Items.deleteMany({});
-        console.log('Deleted previous items');
-        console.log(`Seeded ${items.length} items`);
-        process.exit();
-    } catch (err) {
-        console.log(`Seed Items error: ${err}`);
-        process.exit(1);
-    }
-}
-
-seedItems();
+seedUsers();
